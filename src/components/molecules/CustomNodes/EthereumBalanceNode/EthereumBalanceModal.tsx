@@ -1,10 +1,10 @@
-import { EditNodeModal } from "@/components/atoms/EditNodeModal";
-import { Input } from "@/components/atoms/Input";
-import { useReactFlowStore } from "@/store";
-import { EthereumBalanceData } from "@/types";
-import { Box, Button, Typography } from "@mui/material";
-import { ChangeEvent, FormEvent, useState } from "react";
-import { NodeProps } from "reactflow";
+import { Box, Button, Typography } from '@mui/material';
+import { ChangeEvent, FormEvent, useState } from 'react';
+import { NodeProps } from 'reactflow';
+import { EditNodeModal } from '@/components/atoms/EditNodeModal';
+import { Input } from '@/components/atoms/Input';
+import { useReactFlowStore } from '@/store';
+import { EthereumBalanceData } from '@/types';
 
 interface EthereumBalanceModalProps {
   node: NodeProps<EthereumBalanceData>;
@@ -23,7 +23,7 @@ const EthereumBalanceModal = ({
   const { updateNodeData } = useReactFlowStore();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+    const { value } = e.target;
     setWalletAddress(value);
   };
 
@@ -38,7 +38,7 @@ const EthereumBalanceModal = ({
         <form onSubmit={handleSubmit} key={`form-${nodeId}`}>
           <Typography
             component="h1"
-            sx={{ fontSize: "22px", fontWeight: 500, mb: "24px" }}
+            sx={{ fontSize: '22px', fontWeight: 500, mb: '24px' }}
           >
             {label}
           </Typography>
@@ -48,7 +48,7 @@ const EthereumBalanceModal = ({
             onChange={handleChange}
           />
 
-          <Button type="submit" color="primary" fullWidth sx={{ mt: "24px" }}>
+          <Button type="submit" color="primary" fullWidth sx={{ mt: '24px' }}>
             Update
           </Button>
         </form>

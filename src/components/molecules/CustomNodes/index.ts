@@ -1,5 +1,5 @@
-import EthereumBalanceNode from "./EthereumBalanceNode";
-import { NodeType } from "@/types";
+import EthereumBalanceNode from './EthereumBalanceNode';
+import { NodeType } from '@/types';
 
 const CustomNodes = {
   [NodeType.ETHEREUM_BALANCE]: EthereumBalanceNode,

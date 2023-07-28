@@ -1,30 +1,31 @@
-import { Stack, Typography } from "@mui/material";
-import { ReactComponent as GoogleIcon } from "@/assets/icons/google.svg";
-import { ReactComponent as SeedIcon } from "@/assets/icons/seed.svg";
-import { ReactComponent as MetamaskIcon } from "@/assets/icons/metamask.svg";
-import { SignInMethodButton } from "@/components/atoms/SignInMethodButton";
+import { Stack, Typography } from '@mui/material';
+import { ReactComponent as GoogleIcon } from '@/assets/icons/google.svg';
+import { ReactComponent as SeedIcon } from '@/assets/icons/seed.svg';
+import { ReactComponent as MetamaskIcon } from '@/assets/icons/metamask.svg';
+import { SignInMethodButton } from '@/components/atoms/SignInMethodButton';
 
+// eslint-disable-next-line react/function-component-definition
 export const SignUpWithOtherMethod = () => {
   const handleSignUpWithGoogle = () => {
-    console.log("Signing up with Google");
+    // console.log('Signing up with Google');
   };
 
   const handleSignUpWithSeed = () => {
-    console.log("Signing up with Seed");
+    // console.log('Signing up with Seed');
   };
 
   const handleSignUpWithMetamask = () => {
-    console.log("Signing up with Metamask");
+    // console.log('Signing up with Metamask');
   };
 
   return (
     <div>
       <Typography
         sx={{
-          textAlign: "center",
-          fontSize: "18px",
+          textAlign: 'center',
+          fontSize: '18px',
           fontWeight: 500,
-          marginBottom: "12px",
+          marginBottom: '12px',
         }}
         color="text.secondary"
       >

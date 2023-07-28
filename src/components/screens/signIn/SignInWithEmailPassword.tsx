@@ -1,58 +1,57 @@
-import { ChangeEvent, FormEvent, useState } from "react";
-import { signIn } from "@/services/auth.service";
-import { useNavigate } from "react-router-dom";
-import { AxiosResponse } from "axios";
-import { useMutation } from "@tanstack/react-query";
-import { ErrorResponse, SignInData, User } from "@/types";
-import Cookies from "js-cookie";
-import { emailExpression } from "@/helper";
-import { Input } from "@/components/atoms/Input";
-import { Button, Link, Stack } from "@mui/material";
-import { PasswordInput } from "@/components/atoms/PasswordInput";
+import { ChangeEvent, FormEvent, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AxiosResponse } from 'axios';
+import { useMutation } from '@tanstack/react-query';
+import Cookies from 'js-cookie';
+import { Button, Link, Stack } from '@mui/material';
+import { ErrorResponse, SignInData, User } from '@/types';
+import { emailExpression } from '@/helper';
+import { Input } from '@/components/atoms/Input';
+import { signIn } from '@/services/auth.service';
+import { PasswordInput } from '@/components/atoms/PasswordInput';
 
-export const SignInWithEmailPassword = () => {
+export function SignInWithEmailPassword() {
   const navigate = useNavigate();
   const mutation = useMutation<AxiosResponse<User>, ErrorResponse, SignInData>(
     signIn,
     {
       onSuccess: ({ data }) => {
         const { token } = data;
-        Cookies.set("accessToken", token);
-        navigate("/");
+        Cookies.set('accessToken', token);
+        navigate('/');
       },
     }
   );
 
   const [formValue, setFormValue] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
   const { email, password } = formValue;
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+    const { value } = e.target;
     setFormValue({ ...formValue, email: value });
 
     const isValid = emailExpression.test(value);
-    setEmailError(isValid ? "" : "Invalid email");
+    setEmailError(isValid ? '' : 'Invalid email');
   };
 
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+    const { value } = e.target;
     setFormValue({ ...formValue, password: value });
     if (value.length < 8) {
-      setPasswordError("Password must be at least 8 characters");
+      setPasswordError('Password must be at least 8 characters');
     } else {
-      setPasswordError("");
+      setPasswordError('');
     }
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(formValue);
     mutation.mutate(formValue);
   };
 
@@ -78,7 +77,7 @@ export const SignInWithEmailPassword = () => {
         />
       </Stack>
 
-      <Link sx={{ textAlign: "right", display: "block" }}>
+      <Link href="/" sx={{ textAlign: 'right', display: 'block' }}>
         Forgot password?
       </Link>
 
@@ -86,11 +85,11 @@ export const SignInWithEmailPassword = () => {
         type="submit"
         color="primary"
         fullWidth
-        sx={{ marginTop: "44px" }}
+        sx={{ marginTop: '44px' }}
         disabled={isDisabled}
       >
         Login
       </Button>
     </form>
   );
-};
+}

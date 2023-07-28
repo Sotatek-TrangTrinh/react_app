@@ -1,25 +1,25 @@
-import { Box, Typography } from "@mui/material";
-import BubbleImage from "@/assets/images/bubble.png";
+import { Box, Typography } from '@mui/material';
+import BubbleImage from '@/assets/images/bubble.png';
 
 const AppJourney = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "primary.main",
-        borderRadius: "32px",
-        paddingTop: "110px",
-        paddingBottom: "76px",
-        px: "80px",
+        backgroundColor: 'primary.main',
+        borderRadius: '32px',
+        paddingTop: '110px',
+        paddingBottom: '76px',
+        px: '80px',
       }}
     >
       <Typography
         component="h1"
         color="common.white"
         sx={{
-          fontSize: "64px",
+          fontSize: '64px',
           fontWeight: 700,
-          lineHeight: "72px",
-          mb: "32px",
+          lineHeight: '72px',
+          mb: '32px',
         }}
       >
         Start your Journey with us.

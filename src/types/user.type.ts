@@ -1,4 +1,4 @@
-import { MongoDocument } from "./mongoDocument.type";
+import { MongoDocument } from './mongoDocument.type';
 
 export interface User extends MongoDocument {
   username: string;

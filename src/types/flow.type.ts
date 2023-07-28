@@ -1,5 +1,5 @@
 export enum NodeType {
-  ETHEREUM_BALANCE = "ethereumBalance",
+  ETHEREUM_BALANCE = 'ethereumBalance',
 }
 
 export interface EthereumBalanceData {
