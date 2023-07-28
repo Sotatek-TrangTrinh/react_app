@@ -1,10 +1,10 @@
-import { ReactComponent as EthDiamondIcon } from "@/assets/icons/eth-logo-diamond.svg";
-import { Box, Stack, Typography, useTheme } from "@mui/material";
-import { MouseEvent, useEffect, useState } from "react";
-import { Handle, NodeProps, Position } from "reactflow";
-import EthereumBalanceModal from "./EthereumBalanceModal";
-import { useReactFlowStore } from "@/store";
-import { EthereumBalanceData } from "@/types";
+import { Box, Stack, Typography, useTheme } from '@mui/material';
+import { MouseEvent, useEffect, useState } from 'react';
+import { Handle, NodeProps, Position } from 'reactflow';
+import { ReactComponent as EthDiamondIcon } from '@/assets/icons/eth-logo-diamond.svg';
+import EthereumBalanceModal from './EthereumBalanceModal';
+import { useReactFlowStore } from '@/store';
+import { EthereumBalanceData } from '@/types';
 
 const EthereumBalanceNode = (props: NodeProps<EthereumBalanceData>) => {
   const { data, id, selected } = props;
@@ -17,7 +17,7 @@ const EthereumBalanceNode = (props: NodeProps<EthereumBalanceData>) => {
   const handleClose = () => setOpen(false);
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
-    //if event is double click
+    // if event is double click
     if (event.detail === 2) {
       setOpen(true);
       setEditingNode(id);
@@ -32,12 +32,12 @@ const EthereumBalanceNode = (props: NodeProps<EthereumBalanceData>) => {
     <div>
       <Box
         sx={{
-          border: "solid 1px",
-          borderColor: selected ? "primary.main" : "neutral.50",
-          padding: "15px",
-          borderRadius: "10px",
-          width: "280px",
-          backgroundColor: "white",
+          border: 'solid 1px',
+          borderColor: selected ? 'primary.main' : 'neutral.50',
+          padding: '15px',
+          borderRadius: '10px',
+          width: '280px',
+          backgroundColor: 'white',
         }}
         onClick={handleClick}
       >
@@ -46,12 +46,12 @@ const EthereumBalanceNode = (props: NodeProps<EthereumBalanceData>) => {
           <Box>
             <Typography
               color="text.primary"
-              sx={{ fontSize: "18px", fontWeight: 500 }}
+              sx={{ fontSize: '18px', fontWeight: 500 }}
             >
               {label}
             </Typography>
             <Typography color="text.secondary">
-              Address: {data.walletAddress || "TBD"}
+              Address: {data.walletAddress || 'TBD'}
             </Typography>
           </Box>
         </Stack>
@@ -59,8 +59,8 @@ const EthereumBalanceNode = (props: NodeProps<EthereumBalanceData>) => {
           type="source"
           position={Position.Top}
           style={{
-            width: "8px",
-            height: "8px",
+            width: '8px',
+            height: '8px',
             background: theme.palette.neutral[50],
             borderColor: theme.palette.neutral[50],
           }}
@@ -69,8 +69,8 @@ const EthereumBalanceNode = (props: NodeProps<EthereumBalanceData>) => {
           type="target"
           position={Position.Bottom}
           style={{
-            width: "8px",
-            height: "8px",
+            width: '8px',
+            height: '8px',
             background: theme.palette.neutral[50],
             borderColor: theme.palette.neutral[50],
           }}

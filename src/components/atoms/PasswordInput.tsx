@@ -1,9 +1,8 @@
-import { IconButton, InputAdornment } from "@mui/material";
-import { Input } from "./Input";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { useState } from "react";
-import { ChangeEvent } from "react";
+import { IconButton, InputAdornment } from '@mui/material';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { useState, ChangeEvent } from 'react';
+import { Input } from './Input';
 
 export interface PasswordInputProps {
   value: string;
@@ -13,13 +12,13 @@ export interface PasswordInputProps {
   placeholder?: string;
 }
 
-export const PasswordInput = ({
+export function PasswordInput({
   label,
   value,
   onChange,
-  placeholder,
-  errorMessage,
-}: PasswordInputProps) => {
+  placeholder = '',
+  errorMessage = '',
+}: PasswordInputProps) {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -36,7 +35,7 @@ export const PasswordInput = ({
       onChange={onChange}
       label={label}
       placeholder={placeholder}
-      type={showPassword ? "text" : "password"}
+      type={showPassword ? 'text' : 'password'}
       errorMessage={errorMessage}
       endAdornment={
         <InputAdornment position="end">
@@ -52,4 +51,4 @@ export const PasswordInput = ({
       }
     />
   );
-};
+}

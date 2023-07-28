@@ -14,8 +14,8 @@ import {
   getIncomers,
   getOutgoers,
   getConnectedEdges,
-} from "reactflow";
-import { create } from "zustand";
+} from 'reactflow';
+import { create } from 'zustand';
 
 export type RFState = {
   nodes: Node[];
@@ -33,7 +33,7 @@ export type RFState = {
 export const useReactFlowStore = create<RFState>((set, get) => ({
   nodes: [],
   edges: [],
-  editingNode: "",
+  editingNode: '',
   addNode: (newNode: Node) => {
     set((state) => ({ nodes: [...state.nodes, newNode] }));
   },
@@ -69,8 +69,7 @@ export const useReactFlowStore = create<RFState>((set, get) => ({
     });
   },
   onNodesDelete: (deleted: Node[]) => {
-    const edges = get().edges;
-    const nodes = get().nodes;
+    const { edges, nodes } = get();
     const newEdges = deleted.reduce((acc: Edge[], node: Node) => {
       const incomers = getIncomers(node, nodes, edges);
       const outgoers = getOutgoers(node, nodes, edges);

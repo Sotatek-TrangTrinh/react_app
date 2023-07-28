@@ -1,30 +1,30 @@
-import { Stack, Typography } from "@mui/material";
-import { ReactComponent as GoogleIcon } from "@/assets/icons/google.svg";
-import { ReactComponent as SeedIcon } from "@/assets/icons/seed.svg";
-import { ReactComponent as MetamaskIcon } from "@/assets/icons/metamask.svg";
-import { SignInMethodButton } from "@/components/atoms/SignInMethodButton";
+import { Stack, Typography } from '@mui/material';
+import { ReactComponent as GoogleIcon } from '@/assets/icons/google.svg';
+import { ReactComponent as SeedIcon } from '@/assets/icons/seed.svg';
+import { ReactComponent as MetamaskIcon } from '@/assets/icons/metamask.svg';
+import { SignInMethodButton } from '@/components/atoms/SignInMethodButton';
 
-export const SignInWithOtherMethod = () => {
+export function SignInWithOtherMethod() {
   const handleSignInWithGoogle = () => {
-    console.log("Signing in with Google");
+    // console.log('Signing in with Google');
   };
 
   const handleSignInWithSeed = () => {
-    console.log("Signing in with Seed");
+    // console.log('Signing in with Seed');
   };
 
   const handleSignInWithMetamask = () => {
-    console.log("Signing in with Metamask");
+    // console.log('Signing in with Metamask');
   };
 
   return (
     <div>
       <Typography
         sx={{
-          textAlign: "center",
-          fontSize: "18px",
+          textAlign: 'center',
+          fontSize: '18px',
           fontWeight: 500,
-          marginBottom: "12px",
+          marginBottom: '12px',
         }}
         color="text.secondary"
       >
@@ -46,4 +46,4 @@ export const SignInWithOtherMethod = () => {
       </Stack>
     </div>
   );
-};
+}

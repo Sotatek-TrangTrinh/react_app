@@ -1,2 +1,2 @@
-export * from "./SignUpWithEmailPassword";
-export * from "./SignUpWithOtherMethod";
+export * from './SignUpWithEmailPassword';
+export * from './SignUpWithOtherMethod';

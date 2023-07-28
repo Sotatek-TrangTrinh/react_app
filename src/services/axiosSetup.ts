@@ -1,14 +1,14 @@
-import axios from "axios";
-import Cookies from "js-cookie";
-import { redirect } from "react-router-dom";
+import axios from 'axios';
+import Cookies from 'js-cookie';
+import { redirect } from 'react-router-dom';
 
 const API_ENDPOINT = process.env.API_ENDPOINT as string;
 
 const axiosClient = axios.create({
   baseURL: API_ENDPOINT,
   headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
   },
   timeout: 3000,
   // withCredentials: true,
@@ -16,11 +16,12 @@ const axiosClient = axios.create({
 
 axiosClient.interceptors.request.use(
   (config) => {
-    const accessToken = Cookies.get("accessToken");
+    const newConfig = config;
+    const accessToken = Cookies.get('accessToken');
     if (accessToken) {
-      config.headers.Authorization = "Bearer " + accessToken;
+      newConfig.headers.Authorization = `Bearer ${accessToken}`;
     }
-    return config;
+    return newConfig;
   },
   (error) => {
     return Promise.reject(error);
@@ -33,8 +34,8 @@ axiosClient.interceptors.response.use(
   },
   (error) => {
     if (error.response.status === 401) {
-      Cookies.remove("accessToken");
-      redirect("/sign-in");
+      Cookies.remove('accessToken');
+      redirect('/sign-in');
     }
     return Promise.reject(error);
   }
